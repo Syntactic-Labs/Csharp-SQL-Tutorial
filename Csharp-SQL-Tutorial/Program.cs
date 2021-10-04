@@ -7,16 +7,31 @@ namespace Csharp_SQL_Tutorial
 {
     class Program
     {
-     
         static void Main(string[] args)                                    /*SQL connection open and closure example*/
-        {   //pull data from the MajorsController
-            var majorsCtrl = new MajorsController();
+        {
+            /*create and open connection*/
+            var connectionString
+                = "server=localhost\\sqlexpress;database=EdDb;trusted_connection=true;";
+        var connection = new Connection(connectionString);
+            connection.Open();
+            //pull data from the MajorsController
+            var majorsCtrl = new MajorsController(connection);
+            var major = majorsCtrl.GetByPk(1);
+            Console.WriteLine(major);
+            major = majorsCtrl.GetByPk(11111111);
+            Console.WriteLine(major);
             var majors = majorsCtrl.GetAll();
-            foreach(var major in majors)
+            foreach (var maj in majors)
             {
-                Console.WriteLine(major);
+                Console.WriteLine(maj);
             }
+            /*Close the Connection*/
+
+            connection.Close();
         }
+       
+        
+        
         //seems to block all code below
         static void X(){           //places the address in a variable to use in our code
             var connStr = "server=localhost\\sqlexpress;database=EdDb;trusted_connection=true;";
@@ -30,9 +45,6 @@ namespace Csharp_SQL_Tutorial
                 return;
             }
             Console.WriteLine("Connection opened!");
-           
-            
-            
             
             //SQL CODE!!   we are placing all the the query data in the student class
             var sql = "Select * from Student where GPA between 2.5 and 3.5 order by sat;";
