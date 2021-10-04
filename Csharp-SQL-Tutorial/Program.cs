@@ -1,13 +1,24 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using EdDbLib;
 
 namespace Csharp_SQL_Tutorial
 {
     class Program
     {
-        static void Main(string[] args)                                       /*SQL connection open and closure example*/
-        {   //places the address in a variable to use in our code
+     
+        static void Main(string[] args)                                    /*SQL connection open and closure example*/
+        {   //pull data from the MajorsController
+            var majorsCtrl = new MajorsController();
+            var majors = majorsCtrl.GetAll();
+            foreach(var major in majors)
+            {
+                Console.WriteLine(major);
+            }
+        }
+        //seems to block all code below
+        static void X(){           //places the address in a variable to use in our code
             var connStr = "server=localhost\\sqlexpress;database=EdDb;trusted_connection=true;";
             //creates connection  (variable containing the address)
             var sqlConn = new SqlConnection(connStr);
@@ -19,8 +30,12 @@ namespace Csharp_SQL_Tutorial
                 return;
             }
             Console.WriteLine("Connection opened!");
-            //SQL CODE!!
-            var sql = "Select * from Student;";
+           
+            
+            
+            
+            //SQL CODE!!   we are placing all the the query data in the student class
+            var sql = "Select * from Student where GPA between 2.5 and 3.5 order by sat;";
             var cmd = new SqlCommand(sql, sqlConn);
             var reader = cmd.ExecuteReader();
             var students = new List<Student>();
@@ -46,6 +61,7 @@ namespace Csharp_SQL_Tutorial
 
                 Console.WriteLine(student);
                 students.Add(student);
+                
             }
             reader.Close();
 
@@ -58,7 +74,15 @@ namespace Csharp_SQL_Tutorial
             }
             Console.WriteLine("Connection closure success!!");
 
-
         }
     }
 }
+
+
+
+
+
+
+
+
+

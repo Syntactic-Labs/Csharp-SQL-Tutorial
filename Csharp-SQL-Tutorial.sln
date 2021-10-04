@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp-SQL-Tutorial", "Csharp-SQL-Tutorial\Csharp-SQL-Tutorial.csproj", "{CFA54644-4228-46AE-9282-9B64A11E577B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Csharp-SQL-Tutorial", "Csharp-SQL-Tutorial\Csharp-SQL-Tutorial.csproj", "{CFA54644-4228-46AE-9282-9B64A11E577B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdDbLib", "..\EdDbLib\EdDbLib\EdDbLib.csproj", "{056E7EDA-9575-41F3-B325-79892F89D6B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CFA54644-4228-46AE-9282-9B64A11E577B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFA54644-4228-46AE-9282-9B64A11E577B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFA54644-4228-46AE-9282-9B64A11E577B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056E7EDA-9575-41F3-B325-79892F89D6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056E7EDA-9575-41F3-B325-79892F89D6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056E7EDA-9575-41F3-B325-79892F89D6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056E7EDA-9575-41F3-B325-79892F89D6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
